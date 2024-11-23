@@ -106,6 +106,13 @@ function create_environment(string $host, string $user, string $password, string
     ksort($scripts);
     $dst_json['scripts'] = $scripts;
 
+    if (empty($dst_json['autoload']['psr-4'])) {
+        $dst_json['autoload']['psr-4'] = new stdclass();
+    }
+    if (empty($dst_json['autoload-dev']['psr-4'])) {
+        $dst_json['autoload-dev']['psr-4'] = new stdclass();
+    }
+
     $string = json_encode($dst_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
     file_put_contents($dst, $string);

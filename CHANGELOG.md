@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.3
+
+- Fix wrong encoding of empty `autoload.psr-4`, and `autoload-dev.psr-4`
+
 ## 1.0.2
 
 - Change shell to bash for `install-wp-tests.sh`.

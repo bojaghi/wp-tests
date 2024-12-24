@@ -48,5 +48,21 @@ function getAccessibleMethod(string $className, string $methodName): ?\Reflectio
     return $method;
 }
 
+function getAccessibleProperty(string $className, string $propertyName): ?\ReflectionProperty
+{
+    $property = null;
+
+    if (class_exists($className) && property_exists($className, $propertyName)) {
+        try {
+            $reflection = new \ReflectionClass($className);
+            $property   = $reflection->getProperty($propertyName);
+            $property->setAccessible(true);
+        } catch (\ReflectionException $e) {
+        }
+    }
+
+    return $property;
+}
+
 // Start up the WP testing environment.
 require "{$_tests_dir}/includes/bootstrap.php";

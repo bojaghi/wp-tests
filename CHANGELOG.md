@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.1.0
+2024-12-25
+
+- Add getAccessibleProperty() to bootstrap.php
+
 ## 1.0.3
 
 - Fix wrong encoding of empty `autoload.psr-4`, and `autoload-dev.psr-4`
